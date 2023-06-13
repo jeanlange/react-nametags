@@ -11,14 +11,17 @@ function Tag({name, color}) {
 }
 
 function App() {
+  const colors = ["blue", "red", "green", "purple"]
+  const names = ["Jean", "John", "Scott", "Bernadina-Bess", "Waldo", "Blorf"]
+  const tags = names.map(name => {
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    return <Tag name={name} color={color} />;
+  })
   return (
     <div>
       <h1>hello, world!</h1>
       <div className="tags">
-        <Tag name="Jean" color="blue" />
-        <Tag name="John" color="red" />
-        <Tag name="Sebastian" color="purple" />
-        <Tag name="Blorf" color="green" />
+        {tags}
       </div>
     </div>
   );
